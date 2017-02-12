@@ -9,6 +9,7 @@ browserSync = require('browser-sync').create();
 
 gulp.task('previewDist', function() {
   browserSync.init({
+    notify: false,
     server: {
       baseDir: "docs"
     }
@@ -41,7 +42,7 @@ gulp.task('optimizeImages', ['deleteDistFolder'], function() {
       interlaced: true,
       multipass: true
     }))
-    .pipe(gulp.docs("./dist/assets/images"));
+    .pipe(gulp.dest("./docs/assets/images"));
 });
 
 gulp.task('useminTrigger', ['deleteDistFolder'], function() {
